@@ -8,19 +8,14 @@
 
 int main(){
     
-    char test = 'z';
-	
-	int res = convCharToInt(test) ;
-	char reslt = convIntToChar(res) ;
-	
-	trie_t t ;
-	trie_init(&t) ;
-	
-	trie_destroy(&t) ;
     
-    
-    int foo = (int)"nonsense" ;
+	char * string = "expeditious" ;
+	const char * shrt = getSubstring(string, 4) ;
+	int a = strlen(shrt) ;
 	
+	const char * c = toLower(string) ;
+	
+	int foo = 3 ;
     //todo uncomment
     /*
     trie_t test;

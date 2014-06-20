@@ -17,9 +17,11 @@ char *trie_most_freq_match(trie_t *t, const char *prefix);
 char *trie_longest_prefix(trie_t *t, const char *str);
 void trie_print(trie_t *t);
 
-char getCharAtIndex(const char * str, unsigned index) ;
+char getCharAtIndex(const char * str, size_t index) ;
+const char * getSubstring(const char * str, size_t startingIndex) ;
 int convCharToInt(char c) ;
 char convIntToChar(int n) ;
-char * toUpper(char * in) ;
+const char * toUpper(const char * in) ;
+const char * toLower(const char * in) ;
 
 #endif

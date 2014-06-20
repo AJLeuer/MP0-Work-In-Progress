@@ -24,12 +24,12 @@ void trie_destroy(trie_t *t)
 			}
 		}
 	}
-	free(t) ;
 }
 
 void trie_add(trie_t *t, const char *str)
 {
-
+	const char * in = toUpper(str) ;
+	
 }
 
 
@@ -66,9 +66,20 @@ void trie_print(trie_t *t)
     //todo
 }
 
-char getCharAtIndex(const char * str, unsigned index) {
+char getCharAtIndex(const char * str, size_t index) {
 	char c = str[index] ;
 	return c ;
+}
+
+const char * getSubstring(const char * str, size_t startingIndex) {
+	size_t size = (unsigned)(strlen(str) - startingIndex) ;
+	char temp[size + 1] ; //+1 for '\0' (terminating char)
+	for (size_t i = 0 ; i < size ; i++) {
+		temp[i] = getCharAtIndex(str, (i + startingIndex)) ;
+	}
+	temp[size] = '\0' ;
+	const char * ret = temp ;
+	return ret ;
 }
 
 int convCharToInt(char c) {
@@ -84,14 +95,27 @@ char convIntToChar(int n) {
     return c ;
 }
 
-char * toUpper(char * in) {
+const char * toUpper(const char * in) {
     
     size_t length = strlen(in) ;
-    char temp[length] ;
+    char temp[length + 1] ;
     
     for (size_t i = 0 ; i < length; i++) {
         temp[i] = toupper(in[i]) ;
     }
+	temp[length] = '\0' ;
+    char * out = temp ;
+    return out ;
+}
+
+const char * toLower(const char * in) {
+	size_t length = strlen(in) ;
+    char temp[length + 1] ;
+    
+    for (size_t i = 0 ; i < length; i++) {
+        temp[i] = tolower(in[i]) ;
+    }
+	temp[length] = '\0' ;
     char * out = temp ;
     return out ;
 }
