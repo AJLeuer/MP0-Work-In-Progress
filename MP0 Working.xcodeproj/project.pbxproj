@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		665B7C091951C24500C139A1 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 665B7C081951C24500C139A1 /* main.c */; };
-		665B7C0B1951C24500C139A1 /* MP0_Working.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665B7C0A1951C24500C139A1 /* MP0_Working.1 */; };
+		665B7C141951C2C000C139A1 /* libtrie.c in Sources */ = {isa = PBXBuildFile; fileRef = 665B7C121951C2C000C139A1 /* libtrie.c */; };
+		665B7C151951C2C000C139A1 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 665B7C131951C2C000C139A1 /* main.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +18,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				665B7C0B1951C24500C139A1 /* MP0_Working.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -26,8 +25,9 @@
 
 /* Begin PBXFileReference section */
 		665B7C051951C24500C139A1 /* MP0 Working */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "MP0 Working"; sourceTree = BUILT_PRODUCTS_DIR; };
-		665B7C081951C24500C139A1 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		665B7C0A1951C24500C139A1 /* MP0_Working.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MP0_Working.1; sourceTree = "<group>"; };
+		665B7C111951C2C000C139A1 /* libtrie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libtrie.h; sourceTree = SOURCE_ROOT; };
+		665B7C121951C2C000C139A1 /* libtrie.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libtrie.c; sourceTree = SOURCE_ROOT; };
+		665B7C131951C2C000C139A1 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +60,9 @@
 		665B7C071951C24500C139A1 /* MP0 Working */ = {
 			isa = PBXGroup;
 			children = (
-				665B7C081951C24500C139A1 /* main.c */,
-				665B7C0A1951C24500C139A1 /* MP0_Working.1 */,
+				665B7C111951C2C000C139A1 /* libtrie.h */,
+				665B7C121951C2C000C139A1 /* libtrie.c */,
+				665B7C131951C2C000C139A1 /* main.c */,
 			);
 			path = "MP0 Working";
 			sourceTree = "<group>";
@@ -117,7 +118,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				665B7C091951C24500C139A1 /* main.c in Sources */,
+				665B7C151951C2C000C139A1 /* main.c in Sources */,
+				665B7C141951C2C000C139A1 /* libtrie.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,14 +199,23 @@
 		665B7C0F1951C24500C139A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				KEEP_PRIVATE_EXTERNS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};
 		665B7C101951C24500C139A1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				KEEP_PRIVATE_EXTERNS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Release;
 		};
@@ -227,6 +238,7 @@
 				665B7C101951C24500C139A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
