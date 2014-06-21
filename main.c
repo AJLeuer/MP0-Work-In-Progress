@@ -8,14 +8,19 @@
 
 int main(){
     
+    int i = 0 ;
+    char c = (char)-1 ;
+    trie_t tr ;
+    trie_init(&tr) ;
     
-	char * string = "expeditious" ;
-	const char * shrt = getSubstring(string, 4) ;
-	int a = strlen(shrt) ;
-	
-	const char * c = toLower(string) ;
-	
-	int foo = 3 ;
+    const char * str = "abcxyz" ;
+    const char * str1 = "adam" ;
+    
+    trie_add(&tr, str) ;
+    trie_add(&tr, str1) ;
+    
+    int foo = 3 ;
+    
     //todo uncomment
     /*
     trie_t test;

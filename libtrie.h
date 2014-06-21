@@ -4,7 +4,10 @@
 #include "../lab0/libqueue.h"
 
 typedef struct trie_t {
-    struct trie_t * branches[26] ;
+    
+    struct trie_t * next ;
+    struct trie_t * branches ;
+    char key ;
 } trie_t;
 
 void trie_init(trie_t *t);
@@ -17,10 +20,11 @@ char *trie_most_freq_match(trie_t *t, const char *prefix);
 char *trie_longest_prefix(trie_t *t, const char *str);
 void trie_print(trie_t *t);
 
+trie_t * trie_addkey(trie_t * t, char key) ;
 char getCharAtIndex(const char * str, size_t index) ;
 const char * getSubstring(const char * str, size_t startingIndex) ;
-int convCharToInt(char c) ;
-char convIntToChar(int n) ;
+//int convCharToInt(char c) ;
+//char convIntToChar(int n) ;
 const char * toUpper(const char * in) ;
 const char * toLower(const char * in) ;
 
