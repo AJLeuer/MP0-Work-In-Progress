@@ -13,9 +13,14 @@ int main(){
     
     const char * str = "abcxyz" ;
     const char * str1 = "adam" ;
+	const char * str2 = "damn" ;
+	const char * str3 = "darn" ;
     
     trie_add(&tr, str1) ;
     trie_add(&tr, str) ;
+	trie_add(&tr, str2) ;
+	trie_add(&tr, str2) ;
+	trie_add(&tr, str3) ;
     
     int foo = 3 ;
     

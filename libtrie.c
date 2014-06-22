@@ -35,13 +35,13 @@ void trie_add(trie_t * t, const char * str)
     if (length == 0) {
 		/* we're ending with this node, no need to init child.
 		   Just add the key, and we're done */
-        trie_addkey(&(*t), (char)0) ;
+        t = trie_addkey(&(*t), (char)0) ;
     }
     else { //if (length > 0)  /* if there are still chars left in the string... */
         char key = str[0] ;
         
 		/* add the key to this node */
-        trie_addkey(&(*t), key) ;
+        t = trie_addkey(&(*t), key) ;
 		
 		/* init its child */
 		if (t->child == NULL) {
@@ -89,13 +89,14 @@ void trie_print(trie_t *t)
     //todo
 }
 
-void trie_addkey(trie_t * t, char key) {
+trie_t * trie_addkey(trie_t * t, char key) {
     if (t->key == key) {
         /* we don't need to add anything here.
 		   but if this is already a terminating node, and our new string is terminating here, incr strsEndingHere */
 		if (key == (char)0) {
 			t->strsEndingHere++ ;
 		}
+		return t ;
     }
 	/* if this node hasn't been written to yet */
     else if (t->key == (char)-1) {
@@ -104,17 +105,18 @@ void trie_addkey(trie_t * t, char key) {
 		if (key == (char)0) {
 			t->strsEndingHere++ ;
 		}
+		return t ;
     }
     else { //if there's already a different value in t->key
 		
 		//init t->next
-        t->next = (trie_t*)malloc(sizeof(trie_t)) ;
-        trie_init(t->next) ;
-        t->next->child = (trie_t*)malloc(sizeof(trie_t)) ;
-        trie_init(t->next->child) ;
-		
+		if (t->next == NULL) {
+			t->next = (trie_t*)malloc(sizeof(trie_t)) ;
+			trie_init(t->next) ;
+		}
+        
         //then give it to t->next and store it there (recursively)
-        trie_addkey(t->next, key) ;
+        return trie_addkey(t->next, key) ;
     }
 }
 

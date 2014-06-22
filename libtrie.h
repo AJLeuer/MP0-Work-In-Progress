@@ -24,7 +24,7 @@ char *trie_most_freq_match(trie_t *t, const char *prefix);
 char *trie_longest_prefix(trie_t *t, const char *str);
 void trie_print(trie_t *t);
 
-void trie_addkey(trie_t * t, char key) ;
+trie_t * trie_addkey(trie_t * t, char key) ;
 char getCharAtIndex(const char * str, size_t index) ;
 const char * getSubstring(const char * str, size_t startingIndex) ;
 //int convCharToInt(char c) ;
