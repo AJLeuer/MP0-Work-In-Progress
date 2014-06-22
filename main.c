@@ -8,16 +8,14 @@
 
 int main(){
     
-    int i = 0 ;
-    char c = (char)-1 ;
     trie_t tr ;
     trie_init(&tr) ;
     
     const char * str = "abcxyz" ;
     const char * str1 = "adam" ;
     
-    trie_add(&tr, str) ;
     trie_add(&tr, str1) ;
+    trie_add(&tr, str) ;
     
     int foo = 3 ;
     
