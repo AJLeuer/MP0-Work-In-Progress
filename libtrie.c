@@ -86,7 +86,19 @@ char *trie_longest_prefix(trie_t *t, const char *str)
 
 void trie_print(trie_t *t)
 {
-    //todo
+    if (t->key == (char)0) {
+        printf("%c", '\n') ;
+    }
+    if ((t->key != (char)-1) && (t->key != (char)0)) {
+        printf("%c", t->key) ;
+    }
+    if (t->child != NULL) {
+        trie_print(t->child) ;
+    }
+    
+    if (t->next != NULL) {
+        trie_print(t->next) ;
+    }
 }
 
 trie_t * trie_addkey(trie_t * t, char key) {
@@ -118,6 +130,10 @@ trie_t * trie_addkey(trie_t * t, char key) {
         //then give it to t->next and store it there (recursively)
         return trie_addkey(t->next, key) ;
     }
+}
+
+void trie_print_helper(trie_t * t, trie_t * startingTrie) {
+
 }
 
 char getCharAtIndex(const char * str, size_t index) {

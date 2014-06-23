@@ -22,6 +22,8 @@ int main(){
 	trie_add(&tr, str2) ;
 	trie_add(&tr, str3) ;
     
+    trie_print(&tr) ;
+    
     int foo = 3 ;
     
     //todo uncomment

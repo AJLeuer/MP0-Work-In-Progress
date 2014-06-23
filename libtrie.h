@@ -24,11 +24,11 @@ char *trie_most_freq_match(trie_t *t, const char *prefix);
 char *trie_longest_prefix(trie_t *t, const char *str);
 void trie_print(trie_t *t);
 
+/* my functions */
 trie_t * trie_addkey(trie_t * t, char key) ;
+void trie_print_helper(trie_t * t, trie_t * startingTrie) ;
 char getCharAtIndex(const char * str, size_t index) ;
 const char * getSubstring(const char * str, size_t startingIndex) ;
-//int convCharToInt(char c) ;
-//char convIntToChar(int n) ;
 const char * toUpper(const char * in) ;
 const char * toLower(const char * in) ;
 
